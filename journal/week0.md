@@ -10,6 +10,10 @@ A screenshot is as seen below:
 ![Logical Architectural Diagram](assets/logical-diagram.png)
 
 ### Create a Billing Alarm
+I created a billing alarm using CLI and viewedthe result in AWS console
+![SNS](assets/sns-billing-alarm.png)
+![Cloudwatch Alarm](assets/daily-estimated-charges-alarm.png)
+
 
 
 ### Create a Budget
