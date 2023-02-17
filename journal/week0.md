@@ -24,3 +24,4 @@ The Pictures are as shown below:
 ![MONTHLY BUDGET](assets/zero-budget.png)
 
 ### Install AWS CLI
+I successfully installed AWS CLI on VS Code
