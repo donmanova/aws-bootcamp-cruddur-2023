@@ -3,6 +3,9 @@
 The following tasks were given as Home work after the week 0 class
 
 ### Recreate Conceptual Diagram in Lucid Charts or on a Napkin
+I recreated the concepual design of our crudur app. The design is as seen below:
+![Conceptual Architectural Diagram](assets/napkin-design.png)
+
 
 ### Recreate Logical Architectual Diagram in Lucid Charts
 I followed the template and recreated a logical architectural diagram for our Cruddur app using Lucid Chart.
