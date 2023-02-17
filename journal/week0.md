@@ -13,6 +13,10 @@ A screenshot is as seen below:
 
 
 ### Create a Budget
+I created AWS budget for both AWS Credits and Monthly Billing.
+The Pictures are as shown below:
+![AWS CREDIT BUDGET](assets/credit-budget.png)
 
+![MONTHLY BUDGET](assets/zero-budget.png)
 
 ### Install AWS CLI
