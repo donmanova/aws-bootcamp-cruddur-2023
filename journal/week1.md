@@ -44,6 +44,6 @@ I scanned the table to retrieve items
 
 ### Run Postgres Container and ensure it works
 I successfully implemented and tested the postgres container
-[Postgres DB Code(assets/postgres.png)
+![Postgres DB Code](assets/postgres.png)
 
-[Postgres DB: Test](assets/postgres-db-test.png)
+![Postgres DB: Test](assets/postgres-db-test.png)
