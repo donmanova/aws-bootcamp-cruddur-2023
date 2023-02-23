@@ -19,6 +19,10 @@ I created a new react and css page to handle Notifications
 
 ![React Notification Page](assets/react-notification-page.png)
 
+The final result of the notification page front end is shown below
+
+![React Notification Page](assets/Notifications-frontend.png)
+
 ### Run DynamoDB Local Container and ensure it works
 I watched all videos related to this task and was able to successfully run a dynamodb local container.
 ![DynamoDb Code](assets/dynamodb.png)
