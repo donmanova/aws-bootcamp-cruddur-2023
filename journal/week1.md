@@ -5,7 +5,7 @@
 The following tasks were given as Home work after the week 1 class
 
 ### Document the Notification Endpoint for the OpenAPI Document
-I followed te video tutorial and was able to build Notification Endpoint using the OpenAPI Document provided.
+I followed the video tutorial and was able to build Notification Endpoint using the OpenAPI Document provided.
 
 ![Open- API](assets/open-api.png)
 
