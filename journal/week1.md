@@ -7,15 +7,16 @@ The following tasks were given as Home work after the week 1 class
 ### Document the Notification Endpoint for the OpenAPI Document
 I followed te video tutorial and was able to build Notification Endpoint using the OpenAPI Document provided.
 
-
+![Open- API](assets/open-api.png)
 
 ### Write a Flask Backend Endpoint for Notifications
 I modified the flask backend code provided to include a Notification functionality
 
-![Conceptual Architectural Diagram](assets/notification_endpoint.png)
+![Notification](assets/notification_activities.png)
 
 ### Write a React Page for Notifications
 I created a new react and css page to handle Notifications
+![Notification](assets/notification_endpoint.png)
 
 ![React Notification Page](assets/react-notification-page.png)
 
