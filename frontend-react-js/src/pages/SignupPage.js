@@ -39,6 +39,8 @@ export default function SignupPage() {
     }
     return false
   }
+
+  
   
   const name_onchange = (event) => {
     setName(event.target.value);
@@ -52,6 +54,8 @@ export default function SignupPage() {
   const password_onchange = (event) => {
     setPassword(event.target.value);
   }
+
+
 
   let el_errors;
   if (errors){
