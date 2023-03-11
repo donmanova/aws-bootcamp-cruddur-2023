@@ -45,6 +45,18 @@ export default function ConfirmationPage() {
     event.preventDefault();
     setErrors('')
     try {
+      await Auth.confirmSignUp(email, code);
+      window.location.href = "/"
+    } catch (error) {
+      setErrors(error.message)
+    }
+    return false
+  }
+
+  /* const onsubmit = async (event) => {
+    event.preventDefault();
+    setErrors('')
+    try {
         const { user } = await Auth.signUp({
           username: email,
           password: password,
@@ -64,7 +76,7 @@ export default function ConfirmationPage() {
         setErrors(error.message)
     }
     return false
-  }
+  } */
   
 
   let el_errors;
