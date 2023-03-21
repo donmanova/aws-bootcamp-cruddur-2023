@@ -6,23 +6,14 @@ def lambda_handler(event, context):
     user = event['request']['userAttributes']
     print('userAttributes')
     print('user')
-    user_name = user['name']
+    user_display_name = user['name']
     user_email = user['email'] 
-    user_handle = user[''preferred_username]
+    user_handle = user['preferred_username']
     user_cognito_id = user['sub']
-    try:
-       
-        conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
-            # host=(os.getenv('PG_HOSTNAME')),
-            # database=(os.getenv('PG_DATABASE')),
-            # user=(os.getenv('PG_USERNAME')),
-            # password=(os.getenv('PG_SECRET'))
-        
-        cur = conn.cursor()
-        
+    try:      
         
         sql= f"""
-            "INSERT INTO users (
+            INSERT INTO users (
                 display_name, 
                 email
                 handle,
@@ -32,9 +23,15 @@ def lambda_handler(event, context):
                 {user_display_name}, 
                 {user_email}
                 {user_handle}, 
-                {user_sub})"
+                {user_cognito_id})
         """
+        conn = psycopg2.connect(os.getenv('CONNECTION_URL'))
+            # host=(os.getenv('PG_HOSTNAME')),
+            # database=(os.getenv('PG_DATABASE')),
+            # user=(os.getenv('PG_USERNAME')),
+            # password=(os.getenv('PG_SECRET'))
         
+        cur = conn.cursor()
         cur.execute(sql)
         conn.commit() 
 
