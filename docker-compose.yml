@@ -33,7 +33,7 @@ services:
       REACT_APP_AWS_USER_POOLS_ID: "us-east-1_LBWtW5lPl"
       REACT_APP_CLIENT_ID: "1goh3ekg62l5h53mc0r7n7b18"
     build: ./frontend-react-js
-    ports:
+    ports: 
       - "3000:3000"
     volumes:
       - ./frontend-react-js:/frontend-react-js
