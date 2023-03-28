@@ -125,6 +125,8 @@ cors = CORS(
 def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
+
+    
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
   user_handle  = 'andrewbrown'
