@@ -28,6 +28,7 @@ class Db:
     self.pool = ConnectionPool(connection_url)
   # we want to commit data such as an insert
   # be sure to check for RETURNING in all uppercases
+
   def print_params(self,params):
     blue = '\033[94m'
     no_color = '\033[0m'
@@ -40,6 +41,7 @@ class Db:
     no_color = '\033[0m'
     print(f'{cyan} SQL STATEMENT-[{title}]------{no_color}')
     print(sql,params)
+    
   def query_commit(self,sql,params={}):
     self.print_sql('commit with returning',sql,params)
 
