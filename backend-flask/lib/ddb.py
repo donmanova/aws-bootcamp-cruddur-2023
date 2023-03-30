@@ -1,48 +1,69 @@
+#!/usr/bin/env python3
+
 import boto3
 import sys
-from datetime import datetime, timedelta, timezone
-import uuid
-import os
 
-class Ddb:
-  def client():
-    endpoint_url = os.getenv("AWS_ENDPOINT_URL")
-    if endpoint_url:
-      attrs = { 'endpoint_url': endpoint_url }
-    else:
-      attrs = {}
-    dynamodb = boto3.client('dynamodb',**attrs)
-    return dynamodb  
-  def list_message_groups(client,my_user_uuid):
-    current_year = datetime.datetime.now().year
-    table_name = 'cruddur-messages'
-    query_params = {
-      'TableName': table_name,
-      'KeyConditionExpression': 'pk = :pk AND begins_with(sk,:year)',
-      'ScanIndexForward': False,
-      'Limit': 20,
-      'ExpressionAttributeValues': {
-        ':year': {'S': str(current_year) },
-        ':pkey': {'S': f"GRP#{my_user_uuid}"}
-      }
-    }
-    print('query-params')
-    print(query_params)
-    print('client')
-    print(client)
+attrs = {
+  'endpoint_url': 'http://localhost:8000'
+}
 
-    # query the table
-    response = client.query(**query_params)
-    items = response['Items']
+if len(sys.argv) == 2:
+  if "prod" in sys.argv[1]:
+    attrs = {}
 
-    results = []
-    for item in items:
-      last_sent_at = item['sk']['S']
-      results.append({
-        'uuid': item['message_group_uuid']['S'],
-        'display_name': item['user_display_name']['S'],
-        'handle': item['user_handle']['S'],
-        'message': item['message']['S'],
-        'created_at': last_sent_at
-      })
-    return results
+ddb = boto3.client('dynamodb',**attrs)
+
+table_name = 'cruddur-messages'
+
+
+response = ddb.create_table(
+  TableName=table_name,
+  AttributeDefinitions=[
+    {
+      'AttributeName': 'message_group_uuid',
+      'AttributeType': 'S'
+    },
+    {
+      'AttributeName': 'pk',
+      'AttributeType': 'S'
+    },
+    {
+      'AttributeName': 'sk',
+      'AttributeType': 'S'
+    },
+  ],
+  KeySchema=[
+    {
+      'AttributeName': 'pk',
+      'KeyType': 'HASH'
+    },
+    {
+      'AttributeName': 'sk',
+      'KeyType': 'RANGE'
+    },
+  ],
+  GlobalSecondaryIndexes= [{
+    'IndexName':'message-group-sk-index',
+    'KeySchema':[{
+      'AttributeName': 'message_group_uuid',
+      'KeyType': 'HASH'
+    },{
+      'AttributeName': 'sk',
+      'KeyType': 'RANGE'
+    }],
+    'Projection': {
+      'ProjectionType': 'ALL'
+    },
+    'ProvisionedThroughput': {
+      'ReadCapacityUnits': 5,
+      'WriteCapacityUnits': 5
+    },
+  }],
+  BillingMode='PROVISIONED',
+  ProvisionedThroughput={
+      'ReadCapacityUnits': 5,
+      'WriteCapacityUnits': 5
+  }
+)
+
+print(response)
