@@ -49,7 +49,7 @@ export default function HomeFeedPage() {
     dataFetchedRef.current = true;
 
     loadData();
-    checkAuth(setuser);
+    checkAuth(setUser);
   }, [])
 
   return (
