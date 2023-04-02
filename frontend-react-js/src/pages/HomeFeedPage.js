@@ -1,8 +1,8 @@
 import './HomeFeedPage.css';
 import React from "react";
-import checkAuth from '../lib/checkAuth';
+import checkAuth from '../lib/CheckAuth';
 
-import { Auth } from 'aws-amplify';
+//import { Auth } from 'aws-amplify';
 
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
