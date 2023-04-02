@@ -18,7 +18,7 @@ tasks:
 
   - name: rds-sg-update
     command: |
-      export GITPOD_IP=$(curl ifconfig.me) /
+      export GITPOD_IP=$(curl ifconfig.me)
       source  "$THEIA_WORKSPACE_ROOT/backend-flask/bin/rds/update-sg-rule"
 
   - name: flask

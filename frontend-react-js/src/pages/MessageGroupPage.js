@@ -9,6 +9,7 @@ import MessagesFeed from '../components/MessageFeed';
 import MessagesForm from '../components/MessageForm';
 
 export default function MessageGroupPage() {
+  
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [messages, setMessages] = React.useState([]);
   const [popped, setPopped] = React.useState([]);
@@ -27,6 +28,7 @@ export default function MessageGroupPage() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
+        
         setMessageGroups(resJson)
       } else {
         console.log(res)

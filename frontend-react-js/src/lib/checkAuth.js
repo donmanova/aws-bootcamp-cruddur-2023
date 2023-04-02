@@ -10,7 +10,8 @@ const checkAuth = async (setUser) => {
   .then((user) => {
     console.log('user',user);
     return Auth.currentAuthenticatedUser()
-  }).then((cognito_user) => {
+  })
+  .then((cognito_user) => {
       setUser({
         display_name: cognito_user.attributes.name,
         handle: cognito_user.attributes.preferred_username
